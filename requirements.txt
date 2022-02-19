@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+joblib
+python-csv
+pydantic
+pandas
+scikit-learn

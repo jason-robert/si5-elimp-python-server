@@ -3,6 +3,7 @@ import pandas as pd
 import joblib
 import sklearn
 import scipy
+import scipy.fft
 from scipy.stats import skew, kurtosis
 from app.utils import *
 

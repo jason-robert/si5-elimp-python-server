@@ -7,8 +7,9 @@ import csv
 def data_to_csv(device):
     with open('./csv/accelerometer.csv', 'w', encoding='UTF8') as f:
         writer = csv.writer(f)
-        writer.writerow(device.name.split(','))
-        writer.writerow(device.values.split(','))
+        writer.writerow(device.labels.split(','))
+        for str in device.values:
+            writer.writerow(str.split(','))
 
 
 #####################      MATHS         ###########################################

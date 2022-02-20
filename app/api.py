@@ -9,12 +9,12 @@ print("Démarrage du serveur \n")
 
 @app.get("/")
 async def root():
-    return {"message": "Salut à tous"}
+    return {"message": "Salut à tous\n"}
 
 
 @app.post("/send_data", tags=["Send_Data"])
 async def send_data(device: Device):
-    print("Requete sendData\n")
+    print("Requete pour prédiction\n")
     data_to_csv(device)
     return get_prediction()
 

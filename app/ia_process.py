@@ -60,7 +60,7 @@ def process_data():
                 final_frame = pd.concat([final_frame, val])
 
             good = final_frame.dropna()
-            good.to_csv('./csv/sintermediate.csv')
+            good.to_csv('./csv/intermediate.csv')
 
             wow = pd.DataFrame()
             for key in final_frames:

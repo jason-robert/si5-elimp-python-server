@@ -1,8 +1,8 @@
-
 #####################      CSV         ###########################################
 
 import pandas as pd
 import csv
+
 
 def data_to_csv(device):
     with open('./csv/accelerometer.csv', 'w', encoding='UTF8') as f:
@@ -11,11 +11,11 @@ def data_to_csv(device):
         writer.writerow(device.values.split(','))
 
 
-
 #####################      MATHS         ###########################################
 import numpy as np
 import scipy
 from scipy.stats import skew, kurtosis
+
 
 def spectral_centroid_spread(fft_magnitude, sampling_rate):
     """Computes spectral centroid of frame (given abs(FFT))"""
@@ -67,20 +67,25 @@ def energy(frame):
 
 #####################      GROUP VALUES         ###########################################
 import datetime
+
+
 def get_time_value(x):
-    t = datetime.datetime.fromtimestamp(x/1000.0)
-    t = t.replace(microsecond = 0)
-    return t.timestamp()
-def get_time_ignore_second(x):
-    t = datetime.datetime.fromtimestamp(x/1000.0)
-    t = t.replace(microsecond = 0)
-    t = t.replace(second = int(t.second / 10))
-    return t.timestamp()
-def get_window_10(x):
-    t = datetime.datetime.fromtimestamp(x)
-    t = t.replace(second = int(t.second / 10))
+    t = datetime.datetime.fromtimestamp(x / 1000.0)
+    t = t.replace(microsecond=0)
     return t.timestamp()
 
+
+def get_time_ignore_second(x):
+    t = datetime.datetime.fromtimestamp(x / 1000.0)
+    t = t.replace(microsecond=0)
+    t = t.replace(second=int(t.second / 10))
+    return t.timestamp()
+
+
+def get_window_10(x):
+    t = datetime.datetime.fromtimestamp(x)
+    t = t.replace(second=int(t.second / 10))
+    return t.timestamp()
 
 #####################      DATAFRAME         ###########################################
 

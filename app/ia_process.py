@@ -4,7 +4,7 @@ import joblib
 import sklearn
 import scipy
 from scipy.stats import skew, kurtosis
-import utils
+import "/app/utils.py"
 
 
 def process_data():

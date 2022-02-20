@@ -1,0 +1,11 @@
+services:
+  fastapi:
+    public: true
+    image: jason-robert/fastapi-crud:latest
+    build: .
+    replicas: 1
+    ports:
+      - 8080
+    resources:
+      cpu: 500m
+      memory: 1024Mi

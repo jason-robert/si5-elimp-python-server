@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from app.model import Device
-import utils
+import ./app/utils
 import ia_process as ia
 
 app = FastAPI()

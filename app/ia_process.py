@@ -95,7 +95,6 @@ def create_dataframe():
 
 def get_prediction():
     process_data()
-
     frame = create_dataframe()
 
     # load, no need to initialize the loaded_rf

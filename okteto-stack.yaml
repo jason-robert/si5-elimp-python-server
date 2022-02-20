@@ -7,5 +7,5 @@ services:
     ports:
       - 8080
     resources:
-      cpu: 500m
+      cpu: 2000m
       memory: 1024Mi

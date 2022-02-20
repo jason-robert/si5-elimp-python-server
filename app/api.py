@@ -15,7 +15,7 @@ async def root():
 @app.post("/send_data", tags=["Send_Data"])
 async def send_data(device: Device):
     print("Requete pour prédiction\n")
-    data_to_csv(device)
+    # data_to_csv(device)
     return get_prediction()
 
 

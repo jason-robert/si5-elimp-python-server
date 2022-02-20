@@ -7,4 +7,5 @@ EXPOSE 8080
 COPY ./app app
 COPY ./csv csv
 COPY ./models models
+RUN ls
 CMD ["python3", "main.py"]

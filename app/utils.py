@@ -1,6 +1,5 @@
 #####################      CSV         ###########################################
 
-import pandas as pd
 import csv
 
 
@@ -14,8 +13,6 @@ def data_to_csv(device):
 
 #####################      MATHS         ###########################################
 import numpy as np
-import scipy
-from scipy.stats import skew, kurtosis
 
 
 def spectral_centroid_spread(fft_magnitude, sampling_rate):
@@ -88,26 +85,3 @@ def get_window_10(x):
     t = t.replace(second=int(t.second / 10))
     return t.timestamp()
 
-#####################      DATAFRAME         ###########################################
-
-
-# def transform_frames(f, pid):
-#   cols = ['x', 'y', 'z']
-#   funcs = [('mean', np.mean), ('variance', np.var), ('median', np.median), ('min', np.min), ('max', np.max), ('rms', lambda x: np.sqrt(np.mean(np.square(x)))), ('energy_entropy', lambda x: energy_entropy(x, 10)), ('energy', energy), ('skew', skew), ('Kurtiosis', kurtosis)]
-#   fft_funcs = [('variance', np.var), ('spectral_centroid_spread', lambda x: spectral_centroid_spread(x, 40)) ]
-#   new_frame = pd.DataFrame()
-#   f['time_second'] = f['time'].apply(get_val)
-#   some_values = f.groupby('time_second')
-#
-#   for col in cols:
-#     col_array = some_values[col].apply(np.array)
-#     col_fft = col_array.apply(scipy.fft.fft)
-#     for key, func in funcs:
-#       print(pid,' :Working on', col, '   ', key)
-#       new_frame['_'.join([col, key])] = col_array.apply(func)
-#     for key, func in fft_funcs:
-#       print(pid,' :Working on', col, '   FFT ', key)
-#       new_frame['_'.join([col, 'FFT', key])] = col_fft.apply(func)
-#
-#   new_frame['pid'] = pid
-#   return new_frame

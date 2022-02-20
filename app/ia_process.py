@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import joblib
 import sklearn
@@ -89,7 +88,6 @@ def create_dataframe():
     frame = frame[[x for x in frame.columns if x != 'key']]
 
     frame = frame.dropna()
-    print(frame)
     return frame
 
 
@@ -101,7 +99,6 @@ def get_prediction():
     loaded_rf = joblib.load("./models/rf_alcohol_detection.joblib")
 
     pred_cols = list(frame.columns.values)[:]
-    print(pred_cols)
 
     # apply the whole pipeline to data
     pred = loaded_rf.predict(frame[pred_cols])

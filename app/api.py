@@ -17,10 +17,3 @@ async def send_data(device: Device):
     print("Requete pour prédiction\n")
     data_to_csv(device)
     return get_prediction()
-
-
-
-
-
-
-

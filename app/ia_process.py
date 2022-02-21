@@ -105,7 +105,7 @@ def get_prediction():
     print(pred)
 
     print(pred.mean())
-    verdict = "Oui" if pred.mean() > 0.5 else "Non"
+    verdict = "Oui" if pred.mean() >= 0.3 else "Non"
     print('Bourré ? -> ' + verdict)
 
     return verdict

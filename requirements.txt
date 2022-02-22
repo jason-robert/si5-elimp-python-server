@@ -5,4 +5,3 @@ python-csv
 pydantic
 pandas
 scikit-learn
-'scipy==1.4.1'

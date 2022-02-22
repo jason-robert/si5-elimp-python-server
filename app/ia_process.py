@@ -44,10 +44,10 @@ def process_data():
             col_array = grouped[col].apply(np.array)
             col_fft = col_array.apply(scipy.fft.fft)
             for key, func in funcs:
-                print(pid, ' :Working on', col, '   ', key)
+                # print(pid, ' :Working on', col, '   ', key)
                 response_frame['_'.join(['win_10', col, key])] = col_array.apply(func)
             for key, func in fft_funcs:
-                print(pid, ' :Working on', col, '   FFT ', key)
+                # print(pid, ' :Working on', col, '   FFT ', key)
                 response_frame['_'.join(['win_10', col, 'FFT', key])] = col_fft.apply(func)
         response_frame.pid = pid
         look_up_frames[pid] = response_frame
@@ -60,10 +60,10 @@ def process_data():
                 col_array = grouped[col].apply(np.array)
                 col_fft = col_array.apply(scipy.fft.fft)
                 for key, func in funcs:
-                    print(pid, ' :Working on', col, '   ', key)
+                    # print(pid, ' :Working on', col, '   ', key)
                     response_frame['_'.join([col, key])] = col_array.apply(func)
                 for key, func in fft_funcs:
-                    print(pid, ' :Working on', col, '   FFT ', key)
+                    # print(pid, ' :Working on', col, '   FFT ', key)
                     response_frame['_'.join([col, 'FFT', key])] = col_fft.apply(func)
             response_frame['window10'] = grouped['window10'].apply(lambda x: x.unique().tolist()[0])
             response_frame['pid'] = pid
@@ -121,7 +121,7 @@ def get_prediction():
     print(pred)
 
     print(pred.mean())
-    verdict = "Oui" if pred.mean() >= 0.4 else "Non"
+    verdict = "Oui" if pred.mean() >= 0.8 else "Non"
     print('Bourré ? -> ' + verdict)
 
     return verdict

@@ -3,9 +3,23 @@ import joblib
 import sklearn
 import scipy
 import scipy.fft
+from scipy import signal
 from scipy.stats import skew, kurtosis
 from app.utils import *
 
+def filter_data():
+    data = pd.read_csv('./csv/accelerometer.csv')
+    sos = signal.cheby2(15, 20, 0.17, output='sos', analog=True)
+    filtered_x = signal.sosfilt(sos, data['x'])
+    filtered_y = signal.sosfilt(sos, data['y'])
+    filtered_z = signal.sosfilt(sos, data['z'])
+
+    with open('./csv/accelerometer.csv', 'w') as file:
+        writer = csv.writer(file)
+        writer.writerow(['time', 'pid', 'x', 'y', 'z'])
+        for i in range(len(filtered_x)):
+            to_write = [data['time'][i], 'MC4267', filtered_x[i], filtered_y[i], filtered_z[i]]
+            writer.writerow(to_write)
 
 def process_data():
     data = pd.read_csv('./csv/accelerometer.csv')

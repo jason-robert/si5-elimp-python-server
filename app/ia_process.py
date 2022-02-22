@@ -1,6 +1,8 @@
 import pandas as pd
 import joblib
 import sklearn
+import pkg_resources
+pkg_resources.require("scipy==1.4.1")
 import scipy
 import scipy.fft
 from scipy import signal
